@@ -15,9 +15,9 @@ if os.path.exists(log_file_path): os.remove(log_file_path)
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter("%(asctime)s | %(message)s", "%Y-%m-%d %H:%M:%S")
-chlr = logging.StreamHandler()
+chlr = logging.StreamHandler()  #流handler 能够将日志信息输出到sys.stdout, sys.stderr 或者类文件对象
 chlr.setFormatter(formatter)
-fhlr = logging.FileHandler(log_file_path)
+fhlr = logging.FileHandler(log_file_path) #继承自StreamHandler。将日志信息输出到磁盘文件上。
 fhlr.setFormatter(formatter)
 logger.addHandler(chlr)
 logger.addHandler(fhlr)
